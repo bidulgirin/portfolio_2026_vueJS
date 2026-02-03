@@ -2,7 +2,7 @@
     <section id="contact">
         <!-- background animation -->
         <div class="background_line_animation"></div>
-        <h2 class="g_title">Contact</h2>
+        <h2 class="g_title">Contact me</h2>
         <div class="container contact_layout">
             <form id="contactForm" action="" @submit.prevent="submit">
                 <label>
