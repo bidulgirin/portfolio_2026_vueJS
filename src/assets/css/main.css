@@ -13,7 +13,7 @@
     color: var(--g_white);
 }
 
-section {
+.section {
     opacity: 0.3;
     transition: opacity 300ms ease;
     filter: grayscale(1);
@@ -54,6 +54,7 @@ section.is-active {
     }
     .box1 {
         font-size: 15vw;
+        text-align: center;
         color: rgb(255, 255, 255);
         font-weight: bolder;
         position: relative;
