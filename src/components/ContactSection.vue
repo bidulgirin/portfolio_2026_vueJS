@@ -4,7 +4,7 @@
         <div class="background_line_animation"></div>
         <h2 class="g_title">Contact me</h2>
         <div class="container contact_layout">
-            <form id="contactForm" action="" @submit.prevent="submit">
+            <form id="contactForm" action="" @submit.prevent="submit" style="display: none">
                 <label>
                     <input type="text" name="name" placeholder="성함/업체이름" required v-model.trim="form.name" />
                 </label>
@@ -23,7 +23,30 @@
                     <span>{{ sending ? "전송 중..." : "문의하기" }}</span>
                 </button>
             </form>
-
+            <div class="contact-info">
+                <div class="info-card">
+                    <span class="info-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"
+                                fill="#ff8709" />
+                        </svg>
+                    </span>
+                    <span class="info-label">전화</span>
+                    <span class="info-value">
+                        <a href="tel:010-4909-9553">010-4909-9553</a>
+                    </span>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 4h16v16H4V4zm8 2a6 6 0 100 12 6 6 0 000-12zm0 2a4 4 0 110 8 4 4 0 010-8zm0 1.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z" fill="#ff8709" />
+                        </svg>
+                    </span>
+                    <span class="info-label">이메일</span>
+                    <span class="info-value"><a href="mailto:de05164@gmail.com">de05164@gmail.com</a></span>
+                </div>
+            </div>
             <div class="layout_blog">
                 <ul>
                     <li>
@@ -67,6 +90,11 @@ const form = reactive({
 // 사용자가 입력한 값을 숫자만 남기고, 9자리 이상이면 000-0000-0000 형태로 가공
 let lastFormatted = "";
 watch(
+    // ...existing code...
+
+    // contact-info 스타일을 위한 CSS
+    // 실제 적용은 main.css에 넣는 것이 좋지만, 빠른 확인을 위해 scoped로 추가
+
     () => form.contact,
     (v) => {
         if (v === lastFormatted) return;
@@ -147,3 +175,24 @@ async function submit() {
     }
 }
 </script>
+<style scoped>
+.contact-info {
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: center;
+    transition: box-shadow 0.3s, border-color 0.2s;
+}
+
+.info-card {
+    position: relative;
+    background: var(--g_card, #23232a);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 220px;
+    z-index: 1;
+    border: 2px solid transparent;
+    transition: box-shadow 0.3s, border-color 0.2s;
+}
+</style>

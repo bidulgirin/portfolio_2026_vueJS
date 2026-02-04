@@ -1,40 +1,51 @@
-@font-face {
-    font-family: "Paperozi";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy.woff2") format("woff2");
-    font-display: swap;
-}
-
 * {
-    --background: rgb(31, 31, 31);
-    --g_white: rgb(243, 243, 243);
+    --background: #18181c;
+    --background-alt: #23232a;
+    --g_white: #e0e0e0;
+    --g_text: #bdbdbd;
+    --g_accent: #ff8709;
+    --g_card: #23232a;
+    --g_border: #33343a;
 }
 
 .g_white_txt {
     color: var(--g_white);
 }
 
+body {
+    background: var(--background);
+    color: var(--g_text);
+}
+
 .section {
     opacity: 0.3;
     transition: opacity 300ms ease;
     filter: grayscale(1);
+    background: var(--background-alt);
+    color: var(--g_text);
 }
-
-section.is-active {
-    filter: grayscale(0);
+.section.is-active {
     opacity: 1;
+    filter: grayscale(0);
 }
 
+/* Main Section */
 #main {
     background-color: var(--background);
+    color: var(--g_white);
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
     .box {
         width: 90%;
         margin: 0 auto;
         overflow: hidden;
+        background: var(--g_card);
+        border-radius: 16px;
+        box-shadow: 0 2px 16px 0 #1118;
     }
 
     .cursor {
@@ -53,12 +64,13 @@ section.is-active {
         }
     }
     .box1 {
-        font-size: 15vw;
+        font-size: 14vw;
         text-align: center;
-        color: rgb(255, 255, 255);
+        color: var(--g_white);
         font-weight: bolder;
         position: relative;
         text-wrap: nowrap;
+        background-color: var(--background);
         .box_point {
             background-color: var(--background);
             position: absolute;
@@ -70,33 +82,29 @@ section.is-active {
         .word,
         .clone {
             position: relative;
-            background: var(--color-just-black);
+            background: var(--background-alt);
             font-size: 10vw;
             line-height: 60px;
             padding-top: 5px;
-            box-shadow: 0px 0px 15px var(--color-just-black);
+            box-shadow: 0px 0px 15px #000a;
         }
     }
     .box2 {
         position: relative;
-        background-color: var(--background);
+        background-color: var(--background-alt);
+        color: var(--g_white);
         height: 70vh;
-
         overflow: hidden;
-        position: relative;
-
         .img-wrap {
-            background-repeat: repeat; /* or no-repeat */
-            background-size: cover; /* or contain */
+            background-repeat: repeat;
+            background-size: cover;
             width: 100%;
             height: 100%;
             position: relative;
             border-top-right-radius: 50px;
-            display: inline-block;
-            overflow: hidden; /* 물결이 밖으로 안 나가게 */
             display: block;
+            overflow: hidden;
         }
-
         .img-wrap svg {
             width: 100%;
             height: 100%;
@@ -104,12 +112,8 @@ section.is-active {
             -webkit-user-drag: none;
             border-top-left-radius: 2px;
             border-radius: 5px;
-
             display: block;
-            user-select: none;
-            -webkit-user-drag: none;
         }
-
         .main_logo {
             position: absolute;
             z-index: 1;
@@ -137,16 +141,20 @@ section.is-active {
     animation: ripple 600ms ease-out;
     background: currentColor; /* 필요하면 아래에서 색 바꿔도 됨 */
 }
+
 .g_btn {
-    background-color: black;
+    background-color: var(--g_card);
+    color: var(--g_white);
+    border: 1px solid var(--g_border);
 }
 .g_l_btn {
     width: 100%;
-    background-color: black;
-    color: white;
+    background-color: var(--g_card);
+    color: var(--g_white);
     padding: 10px 20px;
     box-sizing: border-box;
     border-radius: 4px;
+    border: 1px solid var(--g_border);
 }
 @keyframes ripple {
     to {
@@ -162,6 +170,7 @@ section.is-active {
     padding-bottom: 50px;
 }
 /* 상단 메인 메뉴 */
+
 .g_menu {
     width: 100%;
     padding: 10px 20px;
@@ -170,8 +179,8 @@ section.is-active {
     box-sizing: border-box;
     top: 0px;
     left: 0;
-    color: white;
-    background-color: rgba(70, 70, 70, 0.527);
+    color: var(--g_white);
+    background-color: rgba(24, 24, 28, 0.95);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     backdrop-filter: blur(4px);
@@ -184,14 +193,13 @@ section.is-active {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
         ul {
             display: flex;
             gap: 10px;
             li {
                 :hover {
                     transition: all 0.3s;
-                    color: rgb(248, 79, 79);
+                    color: var(--g_accent);
                 }
                 a {
                     text-transform: uppercase;
@@ -202,24 +210,32 @@ section.is-active {
 }
 
 /* 공통 제목 */
+
 .g_title {
     font-family: "Paperozi";
     font-size: 30px;
     text-align: center;
     padding-top: 50px;
     font-weight: 900 !important;
+    text-transform: uppercase;
+    color: var(--g_white);
+}
+.g_title.color_b {
+    color: var(--background);
 }
 
 /* 소개글  */
+
 #introduce {
     position: relative;
     overflow: hidden;
+    background: var(--background-alt);
+    color: var(--g_white);
     .container {
         width: 100%;
         box-sizing: border-box;
-
         .bg {
-            opacity: 0.3;
+            opacity: 0.15;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -232,7 +248,6 @@ section.is-active {
                 height: 100%;
             }
         }
-
         ul {
             position: relative;
             width: 100%;
@@ -249,8 +264,9 @@ section.is-active {
                     margin: 0 auto;
                     overflow: hidden;
                     text-align: center;
-                    border: 1px solid #dcdcdc;
+                    border: 1px solid var(--g_border);
                     border-radius: 100px;
+                    background: white;
                     img {
                         width: 100%;
                         height: 100%;
@@ -288,8 +304,10 @@ section.is-active {
         transform: none !important;
     }
 }
+
 #portfolio {
     background-color: var(--background);
+    color: var(--g_white);
     min-height: 100vh;
     .container {
         width: 90%;
@@ -300,6 +318,9 @@ section.is-active {
             flex-wrap: wrap;
             li {
                 width: 30%;
+                background: var(--g_card);
+                border-radius: 8px;
+                box-shadow: 0 2px 8px 0 #1116;
                 .p_img {
                     object-fit: cover;
                     box-sizing: border-box;
@@ -316,20 +337,38 @@ section.is-active {
                     font-size: 1.2rem;
                     margin-top: 10px;
                     margin-bottom: 10px;
+                    color: var(--g_white);
                 }
                 .desc {
                     font-size: 0.8rem;
+                    color: var(--g_text);
                 }
             }
         }
     }
 }
 
+@keyframes contact-bg-scrolling-reverse {
+    100% {
+        background-position: var(--contact-bg-width) var(--contact-bg-height), 0 0;
+    }
+}
+
 #contact {
-    position: relative;
+    /* Cool infinite background scrolling animation */
+    /* Exo thin font from Google. */
+    /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+    --contact-bg-url: url("https://www.toptal.com/designers/subtlepatterns/uploads/carbon_fibre.png");
+    --contact-bg-width: 50px;
+    --contact-bg-height: 50px;
+    z-index: 1;
+    background: var(--contact-bg-url) repeat 0 0, var(--background-alt);
+    animation: contact-bg-scrolling-reverse 1.92s linear infinite;
+    /* 기존 배경색과 겹치지 않게 opacity 조정 */
+
     width: 100%;
     min-height: 100vh;
-
+    color: var(--g_white);
     .background_line_animation {
         position: absolute;
         top: 0;
@@ -337,32 +376,42 @@ section.is-active {
         z-index: -1;
     }
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     .contact_layout {
         max-width: 500px;
+        margin-top: 30px;
+        box-sizing: border-box;
+        position: relative;
+
         form {
             display: flex;
             flex-direction: column;
         }
-
         input {
-            border: 1px solid #dcdcdc;
+            border: 1px solid var(--g_border);
+            background: var(--g_card);
+            color: var(--g_white);
             padding: 10px;
             width: 100%;
             border-radius: 2px;
             margin-bottom: 10px;
             box-sizing: border-box;
-            caret-color: #ff8411;
+            caret-color: var(--g_accent);
         }
         textarea:focus,
         input:focus {
             transition: all 0.1s;
-            outline: 1.2px solid #ff8411;
+            outline: 1.2px solid var(--g_accent);
             box-sizing: border-box;
         }
-
         textarea {
             width: 100%;
-            border: 1px solid #dcdcdc;
+            border: 1px solid var(--g_border);
+            background: var(--g_card);
+            color: var(--g_white);
             padding: 10px;
             box-sizing: border-box;
             height: 300px;
@@ -375,11 +424,16 @@ section.is-active {
                 display: flex;
                 justify-content: end;
                 gap: 10px;
+                position: relative;
+                z-index: 1;
                 li {
                     width: 40px;
                     height: 40px;
+                    border-radius: 50%;
+                    overflow: hidden;
                     img {
                         width: 100%;
+                        display: block;
                     }
                     transition: all 4s;
                     :hover {
@@ -391,6 +445,34 @@ section.is-active {
     }
 }
 
+.contact_layout::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+    width: 80%;
+    height: 50%;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(270deg, #ff8709, #f7bdf8, #0ae448, #00fff6, #7e0fff, #ff8709);
+    background-size: 200% 200%;
+    filter: blur(48px);
+    opacity: 0.55;
+    animation: animateGlow 8s ease-in-out infinite;
+}
+
+@keyframes animateGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 .lightbox {
     position: fixed;
     inset: 0;
@@ -410,7 +492,8 @@ section.is-active {
 .lightbox__panel {
     position: relative;
     margin: 18vh auto 0;
-    background: #fff;
+    background: var(--g_card);
+    color: var(--g_white);
     border-radius: 14px;
     padding: 18px 16px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);

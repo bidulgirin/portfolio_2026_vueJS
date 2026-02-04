@@ -5,20 +5,20 @@
             <h1><MainLogo /></h1>
             <ul>
                 <li>
-                    <a href="#home">홈</a>
+                    <a href="#main">HOME</a>
                 </li>
                 <li>
-                    <a href="#recent-work">작업물</a>
+                    <a href="#recent-work">WORK</a>
                 </li>
                 <li>
-                    <a href="#contact">연락처</a>
+                    <a href="#contact">CONTACT</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="https://github.com/bidulgirin/bidulgirin">github</a>
                 </li>
                 <li>
                     <a href="https://www.notion.so/94dfc9d8506846ca951b51d3950f1ab4?source=copy_link">notion</a>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </menu>

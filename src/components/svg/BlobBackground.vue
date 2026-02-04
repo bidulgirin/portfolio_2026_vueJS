@@ -15,16 +15,16 @@
         <rect width="100%" height="100%" fill="#f8f9fa" />
 
         <g opacity="0.8">
-            <circle class="blob b4" cx="200" cy="800" r="300" fill="#000000" opacity="0.03" filter="url(#blur-heavy)" />
-            <circle class="blob b5" cx="1600" cy="200" r="250" fill="#001f3f" opacity="0.04" filter="url(#blur-heavy)" />
+            <circle class="blob b4" cx="200" cy="800" r="300" fill="#FF8709" opacity="0.08" filter="url(#blur-heavy)" />
+            <circle class="blob b5" cx="1600" cy="200" r="250" fill="#F7BDF8" opacity="0.09" filter="url(#blur-heavy)" />
 
-            <ellipse class="blob b1" cx="400" cy="300" rx="350" ry="300" fill="#bbdefb" opacity="0.5" filter="url(#blur-medium)" />
-            <circle class="blob b2" cx="600" cy="450" r="200" fill="#64b5f6" opacity="0.3" filter="url(#blur-medium)" />
+            <ellipse class="blob b1" cx="400" cy="300" rx="350" ry="300" fill="#FF8709" opacity="0.35" filter="url(#blur-medium)" />
+            <circle class="blob b2" cx="600" cy="450" r="200" fill="#F7BDF8" opacity="0.25" filter="url(#blur-medium)" />
 
-            <ellipse class="blob b3" cx="1400" cy="800" rx="400" ry="350" fill="#e3f2fd" opacity="0.6" filter="url(#blur-heavy)" />
-            <circle class="blob b1" cx="1200" cy="700" r="150" fill="#90caf9" opacity="0.3" filter="url(#blur-medium)" />
+            <ellipse class="blob b3" cx="1400" cy="800" rx="400" ry="350" fill="#764ba2" opacity="0.32" filter="url(#blur-heavy)" />
+            <circle class="blob b1" cx="1200" cy="700" r="150" fill="#0AE448" opacity="0.22" filter="url(#blur-medium)" />
 
-            <circle class="blob b2" cx="960" cy="540" r="400" fill="#e1f5fe" opacity="0.2" filter="url(#blur-heavy)" />
+            <circle class="blob b2" cx="960" cy="540" r="400" fill="#FF8709" opacity="0.13" filter="url(#blur-heavy)" />
         </g>
     </svg>
 </template>

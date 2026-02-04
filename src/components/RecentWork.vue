@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div id="recent-work">
         <h1 class="g_title">Output</h1>
         <div class="container recent-work">
-            <div class="card" v-for="item in items" :key="item.id" :style="{ backgroundImage: `url(${item.imgUrl})` }">
+            <div class="card" v-for="item in items" :key="item.id" :style="{ backgroundImage: `url(${item.imgUrl})` }" data-aos="fade-up" data-aos-delay="100">
                 <div class="card-content">
                     <h3>{{ item.title }}</h3>
                     <p>{{ item.desc }}</p>
@@ -15,7 +15,7 @@
         </div>
     </div>
 </template>
-
+<script setup></script>
 <script>
 import voicePhishingImg from "@/assets/img/recent_work/koreait/voice.png";
 import happyTestImg from "@/assets/img/recent_work/koreait/happytest.png";

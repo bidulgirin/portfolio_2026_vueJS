@@ -11,17 +11,17 @@
                     </g>
 
                     <g class="group2">
-                        <image href="https://assets.codepen.io/16327/flair-3.png" :mask="`url(#g2_mask_${uid})`" />
+                        <image href="https://assets.codepen.io/16327/flair-3.png" mask="url(#g2_mask)" />
                     </g>
-                    <mask :id="`g2_mask_${uid}`" fill="#fff">
+                    <mask id="g2_mask" fill="#fff">
                         <circle cx="124" cy="0" r="0" />
                         <circle cx="124" cy="248" r="0" />
                     </mask>
 
                     <g class="group3">
-                        <image href="https://assets.codepen.io/16327/flair-4.png" :mask="`url(#g3_mask_${uid})`" />
+                        <image href="https://assets.codepen.io/16327/flair-4.png" mask="url(#g3_mask)" />
                     </g>
-                    <mask :id="`g3_mask_${uid}`" fill="#fff">
+                    <mask id="g3_mask" fill="#fff">
                         <rect x="0" y="0" width="124" height="124" />
                         <rect x="124" y="0" width="124" height="124" />
                         <rect x="0" y="124" width="124" height="124" />
@@ -33,9 +33,9 @@
                     </g>
 
                     <g class="group5">
-                        <image href="https://assets.codepen.io/16327/flair-7.png" :mask="`url(#g5_mask_${uid})`" />
+                        <image href="https://assets.codepen.io/16327/flair-7.png" mask="url(#g5_mask)" />
                     </g>
-                    <mask :id="`g5_mask_${uid}`" fill="#fff">
+                    <mask id="g5_mask" fill="#fff">
                         <path d="M0 248h248L124 0 0 247z" />
                         <circle cx="124" cy="83" r="83" />
                     </mask>
@@ -58,7 +58,8 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
+import gsap from "gsap";
 
 import html from "@/assets/img/stack/html.png";
 import css from "@/assets/img/stack/css.png";
@@ -80,9 +81,6 @@ import postgresql from "@/assets/img/stack/postgresql.png";
 import photoshop from "@/assets/img/stack/photoshop.png";
 import illustrator from "@/assets/img/stack/illustrator.png";
 import ae from "@/assets/img/stack/ae.png";
-
-// mask id 충돌 방지용
-const uid = Math.random().toString(36).slice(2, 9);
 
 const items = [
     { label: "HTML", src: html },
@@ -108,6 +106,52 @@ const items = [
 
 // 끊김 없는 무한 루프용으로 2배로 이어붙임
 const marqueeItems = computed(() => [...items, ...items]);
+
+onMounted(() => {
+    gsap.set("#svg-stage", { opacity: 1 });
+
+    gsap.timeline({ repeat: -1, repeatDelay: 0.5 })
+        .fromTo(".group1", { scale: 0.1, transformOrigin: "124 124" }, { duration: 0.35, scale: 0.5, ease: "expo.inOut" })
+        .to(".group1", { duration: 1.2, rotate: 15, ease: "none" }, 0.1)
+        .to(
+            ".group1 image",
+            {
+                scale: (i) => [0.4, 0.2, 0.3][i],
+                x: (i) => [0, 135, 100][i],
+                y: (i) => [90, 24, 124][i],
+                ease: "back",
+            },
+            0.4,
+        )
+        .to(".group1 image", { duration: 0.01, opacity: 0, stagger: 0.06 }, 1.1)
+        .to("#g2_mask circle", { duration: 1, attr: { r: "124" }, ease: "circ" }, 1.3)
+        .fromTo(".group2", { scale: 1, transformOrigin: "124 124" }, { duration: 1.5, scale: 0.9, ease: "none" }, 1.3)
+        .to(
+            "#g2_mask circle",
+            {
+                duration: 0.3,
+                attr: { cx: (i) => ["+=248", "-=248"][i] },
+                ease: "sine.in",
+            },
+            2.45,
+        )
+        .fromTo(".group3", { transformOrigin: "124 124", rotate: -90 }, { duration: 0.9, rotate: 0, ease: "expo" }, 2.6)
+        .fromTo(
+            "#g3_mask rect",
+            {
+                transformOrigin: (i) => ["0 124", "124 0", "124 124", "248 124"][i],
+                scale: 0,
+            },
+            { duration: 0.4, scale: 1, ease: "expo", stagger: -0.03 },
+            2.6,
+        )
+        .to(".group3", { duration: 0.01, scale: 0 }, 3.7)
+        .from(".group4 image", { duration: 0.01, opacity: 0 }, 3.8)
+        .fromTo(".group4", { transformOrigin: "83 124", rotate: 15, scale: 0.2 }, { duration: 0.5, rotate: 0, scale: 0.85, ease: "bounce" }, 3.8)
+        .to(".group4 image", { duration: 0.01, opacity: 0 }, 4.7)
+        .fromTo("#g5_mask path", { transformOrigin: "124 124", scale: 0 }, { duration: 0.8, scale: 1, ease: "expo" }, 4.7)
+        .fromTo("#g5_mask circle", { transformOrigin: "83 0", scale: 0 }, { scale: 1, ease: "expo" }, 4.7);
+});
 </script>
 
 <style scoped>

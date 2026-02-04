@@ -28,8 +28,7 @@ export function initCommon(root = document) {
     }
 
     // -----------------------
-    // 2) 로딩 화면 (SPA에서는 window load가 이미 지나갔을 수도 있음)
-    // -> 마운트 시점에 바로 처리/또는 존재할 때만 처리
+    // 2) 로딩 화면
     // -----------------------
     const loading = q("#loading");
     if (loading) {

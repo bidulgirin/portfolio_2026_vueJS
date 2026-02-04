@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <link rel="icon" href="<%= BASE_URL %>favicon.svg">
   <title>
     bibidudul
   </title>
@@ -28,12 +28,25 @@
   <!-- 로딩화면 -->
   <div id="loading" class="loading">
     <div class="box small">
-      <img src="https://assets.codepen.io/16327/scroll-flair-2.png" alt="" />
+      <img src="https://assets.codepen.io/16327/scroll-flair-2.png" alt="" class="spin-img" />
     </div>
+    <style>
+      .spin-img {
+        animation: spin 1.2s linear infinite;
+        display: block;
+        margin: 0 auto;
+      }
 
-    <div class="box large">
-      <img src="https://assets.codepen.io/16327/scroll-flair-2.png" alt="" />
-    </div>
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </div>
   <div id="app"></div>
 
