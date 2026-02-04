@@ -5,19 +5,19 @@
             <h1><MainLogo /></h1>
             <ul>
                 <li>
-                    <a href="./">홈</a>
+                    <a href="#home">홈</a>
                 </li>
                 <li>
-                    <a href="./">작업물</a>
+                    <a href="#recent-work">작업물</a>
                 </li>
                 <li>
-                    <a href="./">연락처</a>
+                    <a href="#contact">연락처</a>
                 </li>
                 <li>
-                    <a href="./">github</a>
+                    <a href="https://github.com/bidulgirin/bidulgirin">github</a>
                 </li>
                 <li>
-                    <a href="./">notion</a>
+                    <a href="https://www.notion.so/94dfc9d8506846ca951b51d3950f1ab4?source=copy_link">notion</a>
                 </li>
             </ul>
         </nav>

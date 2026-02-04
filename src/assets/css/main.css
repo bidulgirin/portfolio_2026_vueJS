@@ -63,7 +63,7 @@ section.is-active {
             background-color: var(--background);
             position: absolute;
             width: 100%;
-            height: 30%;
+            height: 25%;
             bottom: 0;
         }
 
