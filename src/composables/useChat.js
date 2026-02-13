@@ -1,6 +1,6 @@
 import { ref, reactive } from "vue";
 
-export function useChat(baseUrl = "/api/chat") {
+export function useChat(baseUrl = process.env.VUE_APP_CHAT_API_URL || "http://localhost:8080/api/chat") {
     const messages = reactive([]);
     const isLoading = ref(false);
     const error = ref(null);
