@@ -5,7 +5,7 @@
             <div class="card" v-for="item in items" :key="item.id" :style="{ backgroundImage: `url(${item.imgUrl})` }" data-aos="fade-up" data-aos-delay="100">
                 <div class="card-content">
                     <h3>{{ item.title }}</h3>
-                    <p>{{ item.desc }}</p>
+                    <p class="card-desc">{{ formatDesc(item.desc) }}</p>
                     <router-link v-if="item.link && item.link.endsWith('.pdf')" :to="{ name: 'PdfViewer', query: { file: item.link } }">View PDF</router-link>
                     <a v-else-if="item.link" :href="item.link" target="_blank">View More</a>
                     <span>{{ item.company }}</span>
@@ -23,6 +23,15 @@ import happyTestImg from "@/assets/img/recent_work/koreait/happytest.png";
 import test from "@/assets/img/recent_work/howto/test.jpg";
 export default {
     name: "RecentWork",
+    methods: {
+        formatDesc(text) {
+            return (text || "")
+                .split("\n")
+                .map((line) => line.trim())
+                .filter(Boolean)
+                .join("\n");
+        },
+    },
     data() {
         return {
             items: [
@@ -186,7 +195,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.564) 0%, rgba(0, 0, 0, 0.6) 100%);
     z-index: 1;
 }
 .card-content {
@@ -202,11 +211,16 @@ export default {
     font-weight: 700;
     line-height: 1.3;
 }
-.card p {
+.card-desc {
     margin: 0 0 15px 0;
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.4;
+    font-size: 0.92rem;
+    font-weight: 450;
+    line-height: 1.65;
+    white-space: pre-line;
+    word-break: keep-all;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    max-width: 95%;
 }
 .card a {
     display: inline-block;

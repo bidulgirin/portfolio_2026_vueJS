@@ -186,7 +186,7 @@ async function submit() {
 .info-card {
     position: relative;
     background: var(--g_card, #23232a);
-    padding: 20px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     gap: 12px;

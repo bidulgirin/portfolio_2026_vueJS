@@ -1,5 +1,6 @@
 <template>
     <section id="introduce" class="g_section">
+        <h1 class="g_title">Tech Stack</h1>
         <div class="marquee container">
             <!-- background svg -->
             <div class="bg" aria-hidden="true">
