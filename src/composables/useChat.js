@@ -37,6 +37,7 @@ export function useChat(baseUrl = process.env.VUE_APP_CHAT_API_URL || "http://lo
                 body: JSON.stringify({
                     message: userMessage,
                     history: chatHistory,
+                    store: true,
                 }),
             });
 
